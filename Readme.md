@@ -17,7 +17,6 @@
 # 项目的思想：
 参考： https://kexue.fm/archives/5861
 采用character字级别，通过搭建lstm-encoder和lstm-decoder和attention进行seq2seq生成任务。  
-![image](https://github.com/liuhuanyong/KerasSeq2seqGeneration/blob/master/img/lstm_seq2seq.model.png)
 
 # 项目的使用：
 1、python att_seq2seq_train.py,进行模型训练。  
