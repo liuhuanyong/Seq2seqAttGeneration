@@ -21,6 +21,7 @@
 # 项目的使用
 1、python att_seq2seq_train.py,进行模型训练。  
 2、python att_seq2seq_predict.py,进行模型测试。  
+3、项目运行环境：keras==2.1.5, tensorflow==1.15.0
 
 # 项目的总结
 
