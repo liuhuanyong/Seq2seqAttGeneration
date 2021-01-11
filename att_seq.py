@@ -1,5 +1,6 @@
 # coding=utf-8
 import keras.backend as K
+import tensorflow as tf
 from keras.layers import Layer
 import copy
 from keras_layer_normalization import LayerNormalization
@@ -53,7 +54,7 @@ class OurBidirectional(OurLayer):
         """
         seq_len = K.round(K.sum(mask, 1)[:, 0])
         seq_len = K.cast(seq_len, 'int32')
-        return K.tf.reverse_sequence(x, seq_len, seq_dim=1)
+        return tf.reverse_sequence(x, seq_len, seq_dim=1)
 
     def call(self, inputs):
         x, mask = inputs
@@ -158,7 +159,7 @@ class Attention(OurLayer):
         a = K.permute_dimensions(a, (0, 3, 2, 1))
         if self.mask_right:
             ones = K.ones_like(a[:1, :1])
-            mask = (ones - K.tf.matrix_band_part(ones, -1, 0)) * 1e10
+            mask = (ones - tf.matrix_band_part(ones, -1, 0)) * 1e10
             a = a - mask
         a = K.softmax(a)
         # 完成输出
